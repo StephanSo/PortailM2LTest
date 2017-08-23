@@ -10,7 +10,11 @@ block append body
                 | La M2L est une structure financée par le Conseil Régional de Lorraine dont l'administration est déléguée au Comité Régional Olympique et Sportif de Lorraine (CROSL).
        
         .page-header
-            h3 Bienvenue
+            if (!user)
+                h3 Bienvenue !!
+
+            else
+                h3 Bienvenue #{user.username}
             
         p.lead
             | Maison des ligues
