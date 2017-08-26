@@ -6,15 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
-var session = require('express-session');
+var session = require('express-session'); //library to manage sessions.
 
 //MODELS
-var users = require('./model/users');
+var users_model = require('./model/users');
 
 //ROUTES
 var index = require('./routes/index');
-var login = require('./routes/login');
-var logout = require('./routes/logout');
+var users = require('./routes/users');
 
 //AUTHENTIFICATION
 
@@ -27,7 +26,7 @@ var logout = require('./routes/logout');
 
 passport.use(new Strategy(
   function(username, password, done) {
-    users.findByUsername(username ,
+    users_model.findByUsername(username ,
         function(err, user) {
             if (err) { return done(err); }
 
@@ -58,7 +57,7 @@ passport.serializeUser(
 );
 passport.deserializeUser(
     function(id, callback) {
-        users.findById(id,
+        users_model.findById(id,
             function (err, user) {
                 if (err) {
                     return callback(err);
@@ -83,6 +82,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+// secret : key used to encrypted the cookie
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -91,9 +91,7 @@ app.use(passport.session());
 
 // ROUTES
 app.use('/', index);
-//app.use('/users', users); désactivation du module de routage nommé users
-app.use('/login', login);
-app.use('/logout', logout);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -112,5 +110,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
