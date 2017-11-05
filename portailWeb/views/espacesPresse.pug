@@ -2,9 +2,23 @@ extends layout
 block append body
     .container.theme-showcase(role='main')
         .jumbotron
-            h1 #{title}
-            h2= donnees.feed.title
+            h1 #{titre}
+            table.table
+                thead.thead-default
+                    tr
+                        th LORFM - Sport
+                        th
+                tbody.tbody-default
+                    tr
+                        td Les titres
+                        td Les liens
 
-            ul
-                each entrie in donnees.feed.entries
-                    li= entrie.title + ' : ' + entrie.link
+                    each entrie in donnees.feed.entries
+                        tr
+
+                            td
+                                p=entrie.title
+                            td
+                                a(target="_blank" href=entrie.link)=entrie.link
+
+

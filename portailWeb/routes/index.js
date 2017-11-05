@@ -32,8 +32,10 @@ router.get('/participationsJOP',
         console.log(req.session);
         res.render('participationsJOP', {title: 'Participation aux JO / JP'});
     }
-);router.get('/espacesPresse',rss_controller.rss);
+);
+
 router.get('/espacesPresse',
+    rss_controller.rss,
     function (req, res) {
         console.log(req.session);
         res.render('espacesPresse', {title: 'Espaces des presses'});
