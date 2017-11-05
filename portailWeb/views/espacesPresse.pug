@@ -3,3 +3,8 @@ block append body
     .container.theme-showcase(role='main')
         .jumbotron
             h1 #{title}
+            h2= donnees.feed.title
+
+            ul
+                each entrie in donnees.feed.entries
+                    li= entrie.title + ' : ' + entrie.link
