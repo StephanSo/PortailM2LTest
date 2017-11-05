@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MaelleT/PortailM2L/issues"
   },
-  "homepage": "https://github.com/MaelleT/PortailM2L#readme"
+  "homepage": "https://github.com/MaelleT/PortailM2L#readme",
+  "dependencies": {
+    "rss-parser": "^2.10.8"
+  }
 }
