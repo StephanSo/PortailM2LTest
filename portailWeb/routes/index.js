@@ -9,6 +9,7 @@ var rss_controller = require('../controllers/rss_controller');
 router.get('/',
     function(req, res) {
         console.log(req.session);
+        console.log('bonjour',req.user);
 
         res.render('index', { title: 'Portail de la M2L', user: req.user });
     }

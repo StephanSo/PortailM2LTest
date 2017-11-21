@@ -10,5 +10,8 @@ class Prestation{
     get ligue(){
         return this._uneLigue;
     }
+    creeFacture(){
+        facture = new
+    }
 }
 module.exports = Prestation;

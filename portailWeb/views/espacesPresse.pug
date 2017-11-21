@@ -14,11 +14,12 @@ block append body
                         td Les liens
 
                     each entrie in donnees.feed.entries
-                        tr
 
-                            td
-                                p=entrie.title
-                            td
-                                a(target="_blank" href=entrie.link)=entrie.link
+                            tr
+
+                                td
+                                    p=entrie.title
+                                td
+                                    a(target="_blank" href=entrie.link)=entrie.link
 
 

@@ -1,4 +1,4 @@
- {
+{
   "name": "portailweb",
   "version": "0.0.0",
   "private": true,
@@ -8,14 +8,17 @@
   "dependencies": {
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "express-session": "^1.15.5",
+    "debug": "^2.6.9",
+    "express": "^4.15.5",
+    "express-session": "^1.15.6",
+    "md5": "^2.2.1",
     "morgan": "~1.8.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "pug": "~2.0.0-beta11",
+    "pg": "^7.4.0",
+    "pug": "^2.0.0-rc.4",
     "pug-bootstrap": "0.0.15",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "^2.4.5",
+    "express-session":"^1.15.6"
   }
 }

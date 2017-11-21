@@ -7,13 +7,8 @@ class Ligue{
         this._lesPrestations = [];
         this._lesFactures = [];
     }
-    demandePrestation(unePrestation){
-        this._lesPrestations.add(unePrestation):
-    }
 
-    get lesFactures(){
 
-    }
 }
 
 module.exports = Ligue;
