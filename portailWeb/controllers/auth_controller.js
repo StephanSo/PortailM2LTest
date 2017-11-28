@@ -1,4 +1,4 @@
-
+var express = require('express');
 const DAOUser= require('../DAO/DAOpg/DAOUser');
 const daoUser = new DAOUser();
 
@@ -18,16 +18,19 @@ exports.indentification = function (req, res) {
 
 
 
-    daoUser.loginUser(username, password, function (req) {
-        console.log(req);
-        if(req=="ok"){
+    daoUser.loginUser(username, password, function (okpasok) {
+        console.log(okpasok);
+        if(okpasok=="ok"){
             valid=true;
         }
         else{
             valid=false;
         }
         if(valid){
-          res.redirect('/');
+
+            req.session.cookie.user=username;
+            console.log('test', req.session);
+          res.render('index', {user:req.session.cookie.user});
         }
         else{
             res.redirect('/users/login');
@@ -40,6 +43,6 @@ exports.indentification = function (req, res) {
 //LOGOUT
 exports.logout = function(req, res){
      req.logout();
-     
+
      res.redirect('/');
  };

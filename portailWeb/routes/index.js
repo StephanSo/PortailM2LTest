@@ -2,18 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 var rss_controller = require('../controllers/rss_controller');
-
+var indexController = require('../controllers/indexController');
 
 /* GET home page. */
 
-router.get('/',
-    function(req, res) {
-        console.log(req.session);
-        console.log('bonjour',req.user);
+router.get('/', indexController.index);
 
-        res.render('index', { title: 'Portail de la M2L', user: req.user });
-    }
-);
 router.get('/annuaire',
     function (req, res) {
         console.log(req.session);
