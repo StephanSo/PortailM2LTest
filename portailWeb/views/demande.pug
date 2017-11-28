@@ -1,0 +1,76 @@
+extends layout
+block append body
+    .container.theme-showcase(role='main')
+        .jumbotron
+            h1 Demande de reproduction #{title}
+            h4 Vous pouvez saisir ici vos demande de prestations d'afranchissment ou de reproduction
+            br
+            //Information de base de la demande//
+            h7 Nom de ligue :
+                input(type = "text" id = "txtLigue" value = "")
+            br
+            h7 Date :
+                input(type ='text' id = "txtDate" value = "")
+            br
+
+            h7 Choisissez le type de prestation :
+                select(name="choix" size="1")
+                    option
+                    option Reproduction
+                    option Affranchissement
+                    option Reproduction et affranchissment
+            br
+            br
+            //Information concernant exclusivement les reproductions//
+            h6 Reproduction :
+
+            h7 Document à reproduire
+
+            h7 Nombre de copie :
+                input(type = 'text' id = 'nbCopie' value = '')
+            br
+
+            h7 Type de copie :
+            br
+            input(type = 'checkbox' id = 'chBoxNB' )
+            h7 Noir et blanc
+
+                br
+                input(type = 'checkbox' id = 'chBoxCo' )
+            h7 Couleur
+
+            br
+            br
+
+            //Information concernant exclusivement les affranchissments//
+            h6 Affranchissement :
+
+            h7 Nombre de courriers à affranchir
+                input(type = 'text' id ='nbCourier' value = '')
+
+            br
+            br
+            br
+
+            //Bouton permettant l'enregistrement des information sur la BDD//
+            input(type = 'submit' id='btnEnvoi' value = 'Envoyer la demande')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
