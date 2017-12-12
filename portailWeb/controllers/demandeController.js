@@ -4,8 +4,8 @@ const daoDemande = new DAODemande();
 
 exports.afficheDemande =  function (req, res) {
     res.render('demande');
-    import(DAOLesLigues);
-}
+
+};
 
 exports.faireDemande = function (req,res) {
     nameLigue = req.body.txtLigue;

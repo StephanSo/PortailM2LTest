@@ -1,7 +1,5 @@
 const {Client} = require('pg');
 const User = require('../../model/users');
-
-
 const Role = require('../../model/role');
 class DAOUser{
 
