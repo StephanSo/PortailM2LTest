@@ -1,0 +1,21 @@
+extends layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            h1  Choisir la prestation à valider
+            p
+                | Le conseiller peut valider des prestations suite à la demande des ligues.
+
+        .page-header
+            h3 Formulaire
+
+        p.lead
+            form(action='/prestation' method='post')
+                h7 Choissisez l'id de prestation:
+
+                    select(name="choix" size='1')
+                        each prestation in liste
+                            option= prestation._idpresta/* +' '+ prestation._nomligue +' '+ prestation._date +' '+ prestation._nbcopie +' '+ prestation._typecopie +' '+ prestation._nbcourrier +' '+ prestation._poidscourrier +' '+ prestation._etat*/
+                input.btn.btn-default(type='submit' value='Valider')

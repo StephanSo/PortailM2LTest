@@ -1,0 +1,36 @@
+extends layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            h1  Détails de la prestation sélectionnée
+            p
+                | La prestation est a valider ou non par le conseiller
+
+        .page-header
+            form(action='/prestation/'+prestation._idpresta+'/valider' method='post')
+                table.table.table-condensed.table-responsive
+                    thead
+
+                        tr
+                            th Id
+                            th Nom ligue
+                            th Date
+                            th Nombre de copie
+                            th Type de copie
+                            th Nombre de courrier
+                            th Poids du courrier
+                            th Etat
+                    tbody
+                        tr
+                            td= prestation._idpresta
+                            td= prestation._nomligue
+                            td= prestation._date
+                            td= prestation._nbcopie
+                            td= prestation._typecopie
+                            td= prestation._nbcourrier
+                            td= prestation._poidscourrier
+                            td
+                                input(type='checkbox' name='valider')
+                input(type='submit' value='Valider')

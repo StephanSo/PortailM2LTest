@@ -1,17 +1,14 @@
 class Prestation{
-    constrctor(id, dateP, quantite, uneLigue, uneFacture){
-        this._id = id;
-        this._dateP = dateP;
-        this._quantite = quantite;
-        this._uneLigue = uneLigue;
-        this._uneFacture = uneFacture;
+    constructor(idpresta, nomligue,date , nbcopie, typecopie, nbcourrier,poidscourrier,etat){
+        this._idpresta = idpresta;
+        this._nomligue = nomligue;
+        this._date = date;
+        this._nbcopie = nbcopie;
+        this._typecopie = typecopie;
+        this._nbcourrier =nbcourrier;
+        this._poidscourrier= poidscourrier;
+        this._etat=etat;
 
-    }
-    get ligue(){
-        return this._uneLigue;
-    }
-    creeFacture(){
-        facture = new
     }
 }
 module.exports = Prestation;
