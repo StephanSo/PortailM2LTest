@@ -17,5 +17,5 @@ block append body
 
                     select(name="choix" size='1')
                         each prestation in liste
-                            option= prestation._idpresta/* +' '+ prestation._nomligue +' '+ prestation._date +' '+ prestation._nbcopie +' '+ prestation._typecopie +' '+ prestation._nbcourrier +' '+ prestation._poidscourrier +' '+ prestation._etat*/
+                            option= prestation._idpresta
                 input.btn.btn-default(type='submit' value='Valider')
