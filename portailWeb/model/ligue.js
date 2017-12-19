@@ -1,8 +1,15 @@
 class Ligue{
-    constructor(id, nom){
-        this._id = id ;
-        this._nom = nom;
+    constructor(unId, unNom){
+        this.id = unId ;
+        this.nom = unNom;
     }
+    // getId(){
+    //     return this.id;
+    // }
+    // getNom(){
+    //     return this.nom;
+    // }
+
 }
 
 module.exports = Ligue;

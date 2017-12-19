@@ -1,5 +1,5 @@
 const {Client} = require('pg');
-const ligue = require('../../model/ligue');
+const Ligue = require('../../model/ligue');
 
 class DAODLesLigues{
     constructor() {
@@ -13,10 +13,10 @@ class DAODLesLigues{
         });
     }
 
-    voirToutesLesLigue (displaycb){
+    voirToutesLesLigue(displaycb){
         const query = {
             name: 'toutesLesLigues',
-            text: 'SELECT nom FROM ligue',
+            text: 'SELECT * FROM ligue',
         };
 
 
@@ -24,24 +24,27 @@ class DAODLesLigues{
             let lesLigues = [];
             if (err) {
                 console.log(err.stack);
-            } else {
+            }
+            else {
                 result.rows.forEach(function(row) {
                     let uneLigue;
 
-                    uneLigue = new ligue(lesLigues.length, row['libelle']);
+                    uneLigue = new Ligue(row['id'], row['nom']);
                     lesLigues.push(uneLigue);
                 });
 
-                displaycb(lesLigues);
+
 
             }
+            displaycb(lesLigues);
 
         });
 
 
     };
 
-    
+
 
 
 }
+module.exports=DAODLesLigues;

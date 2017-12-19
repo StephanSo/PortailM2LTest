@@ -16,6 +16,7 @@ var users_model = require('./model/users');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var demande = require('./routes/demande');
+var facture = require('./routes/facture');
 
 //AUTHENTIFICATION
 
@@ -97,6 +98,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use('/', index);
 app.use('/users', users);
 app.use('/demande', demande);
+app.use('/facture', facture);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

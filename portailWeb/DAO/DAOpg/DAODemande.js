@@ -13,7 +13,7 @@ class DAODemande {
     }
 
     ajouterDemandePrestation(nameLigue, dateDemande, nbCopie, typeCopie, nbAffr, pdsAffr) {
-        const text='insert into prestation(idpresta,nomligue,date,nbcopie,typecopie,nbcourrier,poidscourrier, etat) values(24,$1,$2,$3,$4,$5,$6,null) returning *';
+        const text='insert into prestation(idpresta,nomligue,date,nbcopie,typecopie,nbcourrier,poidscourrier, etat) values(nextval(\'seq_num_presta\'),$1,$2,$3,$4,$5,$6,null) returning *';
 
         const values =[nameLigue, dateDemande,nbCopie,typeCopie,nbAffr,pdsAffr];
         this._client.query(text,values, function(err,res){

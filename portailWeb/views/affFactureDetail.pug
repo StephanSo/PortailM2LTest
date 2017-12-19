@@ -1,0 +1,15 @@
+extends layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            h1  Visualiser les factures
+            h4 Liste de factures des ligues
+            p id = #{facture._id}
+            p ligue numero #{facture._uneLigue}
+            p date creation #{facture._dateEdition}
+
+
+
+
