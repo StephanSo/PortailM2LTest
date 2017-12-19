@@ -15,9 +15,6 @@ exports.indentification = function (req, res) {
     username = req.body.username;
     password = req.body.password;
     let valid =false;
-
-
-
     daoUser.loginUser(username, password, function (okpasok) {
         console.log(okpasok);
         if(okpasok=="ok"){

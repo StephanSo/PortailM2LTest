@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-var demande_controller = require('../controllers/demande_controller');
+var demandeController = require('../controllers/demandeController');
 
-router.get('/',
-    function(req, res) {
-        console.log(req.session);
-        res.render('demande');
-    }
-);
+router.get('/', demandeController.afficheDemande);
+router.post('/',demandeController.faireDemande);
+
+// router.post('/',demande_controller.demande);
+
+
+
+
 
 module.exports = router;

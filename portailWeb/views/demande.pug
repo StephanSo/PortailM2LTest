@@ -2,58 +2,59 @@ extends layout
 block append body
     .container.theme-showcase(role='main')
         .jumbotron
-            h1 Demande de reproduction #{title}
-            h4 Vous pouvez saisir ici vos demande de prestations d'afranchissment ou de reproduction
-            br
-            //Information de base de la demande//
-            h7 Nom de ligue :
-                input(type = "text" id = "txtLigue" value = "")
-            br
-            h7 Date :
-                input(type ='text' id = "txtDate" value = "")
-            br
 
-            h7 Choisissez le type de prestation :
-                select(name="choix" size="1")
-                    option
-                    option Reproduction
-                    option Affranchissement
-                    option Reproduction et affranchissment
+            h1 Demande de prestation #{title}
+            h4 Vous pouvez saisir ici vos demande de prestations d'affranchissment ou de reproduction
             br
-            br
-            //Information concernant exclusivement les reproductions//
-            h6 Reproduction :
-
-            h7 Document à reproduire
-
-            h7 Nombre de copie :
-                input(type = 'text' id = 'nbCopie' value = '')
-            br
-
-            h7 Type de copie :
-            br
-            input(type = 'checkbox' id = 'chBoxNB' )
-            h7 Noir et blanc
+            form.form-horizontal(action="/demande", method="post")
+                //Information de base de la demande//
+                h7 Nom de ligue :
+                .form
+                    input(type = "text" name = "txtLigue" )
+                br
+                h7 Date :
+                .form
+                    input(type ='date' name = "txtDate" )
+                br
+                //Information concernant exclusivement les reproductions//
+                h6 Reproduction :
+                h7 Nombre de copie :
+                .form
+                    input(type = 'text' name ='nbCopie')
+                br
+                //
+                h7
+                .form-group
+                    label Type de copie :
+                    .radio
+                        label
+                            input(type="radio", name="rad1", value="NB", checked "true")
+                            | Noir et blanc
+                    .radio
+                        label
+                            input(type="radio", name="rad1", value="C")
+                            | Couleurs
 
                 br
-                input(type = 'checkbox' id = 'chBoxCo' )
-            h7 Couleur
+                //Information concernant exclusivement les affranchissments//
+                h6 Affranchissement :
 
-            br
-            br
+                h7 Nombre de courriers à affranchir
+                .form
+                    input(type = 'text' name ='nbCourier')
 
-            //Information concernant exclusivement les affranchissments//
-            h6 Affranchissement :
+                br
+                h7 Poids total du courrier :
+                    .form
+                        input(type = 'text' name ='poidsCourrier')
 
-            h7 Nombre de courriers à affranchir
-                input(type = 'text' id ='nbCourier' value = '')
+                br
+                br
+                br
 
-            br
-            br
-            br
+                //Bouton permettant l'enregistrement des information sur la BDD//
+                input(type = 'submit' value = 'Envoyer la demande')
 
-            //Bouton permettant l'enregistrement des information sur la BDD//
-            input(type = 'submit' id='btnEnvoi' value = 'Envoyer la demande')
 
 
 
