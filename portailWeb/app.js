@@ -17,6 +17,7 @@ var users = require('./routes/users');
 var prestation = require('./routes/prestation');
 var demande = require('./routes/demande');
 var facture = require('./routes/facture');
+var infos = require('./routes/infos');
 
 //AUTHENTIFICATION
 
@@ -98,6 +99,7 @@ app.use('/users', users);
 app.use('/prestation', prestation);
 app.use('/demande', demande);
 app.use('/facture', facture);
+app.use('/infos', infos)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
